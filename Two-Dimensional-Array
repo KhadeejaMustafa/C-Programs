@@ -1,3 +1,8 @@
+/** about this code: A matrix of the given values will be displayed, row wise and column wise.
+then after each matrix is displayed, the sum of their diagonal values will be displayed too. **/
+
+
+
 #include<iostream>
 using namespace std;
 
