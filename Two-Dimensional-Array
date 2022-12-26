@@ -1,0 +1,100 @@
+#include<iostream>
+using namespace std;
+
+
+// declaring array
+int i, j, k;
+int array[3][3] = {{56, 27, 9}, {25, 32, 18}, {88, 11, 23}};
+
+// display function will display the matrix when called.
+void display(int array[][3]) {
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 3; j++) {
+      cout << array[i][j] << "\t";
+    }
+    cout << endl;
+  }
+}
+
+// sortRow function
+void sortRow(int array[][3]) {
+  int temp;
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 3; j++) {
+      for (k = j + 1; k < 3; k++) {
+        if (array[i][j] > array[i][k]) {
+          temp = array[i][j];
+          array[i][j] = array[i][k];
+          array[i][k] = temp;
+        }
+      }
+    }
+  }
+}
+
+
+//diagonal sum row wise function
+void DiagonalSumRow(int array[3][3]) {
+  int RowSum = 0;
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 3; j++) {
+      if (i == j) {
+        RowSum += array[i][j];
+      }
+    }
+  }
+  cout << "Sum of diagonal Elements for Row Wise Sorted Array is: " << RowSum
+       << endl;
+}
+
+
+// sortColumn function
+void sortCol(int array[][3]) {
+  int temp;
+
+  for (j = 0; j < 3; j++) {
+    for (i = 0; i < 3; i++) {
+      for (k = i + 1; k < 3; k++) {
+        if (array[i][j] > array[k][j]) {
+          temp = array[i][j];
+          array[i][j] = array[k][j];
+          array[k][j] = temp;
+        }
+      }
+    }
+  }
+}
+
+
+// DiagonalSumCol function
+void DiagonalSumCol(int array[3][3]) {
+  int ColSum = 0;
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 3; j++) {
+      if (i == j) {
+        ColSum += array[i][j];
+      }
+    }
+  }
+  cout << "Sum of diagonal Elements for Column Wise Sorted Array is: " << ColSum
+       << endl;
+}
+
+int main() {
+  // rows
+  cout << "Row wise sorted arrays: " << endl;
+  sortRow(array);
+  display(array);
+  cout << endl;
+
+  DiagonalSumRow(array);
+  cout << endl;
+
+  // columns
+  cout << "Column wise sorted arrays: " << endl;
+  sortCol(array);
+  display(array);
+  cout << endl;
+
+  DiagonalSumCol(array);
+}
