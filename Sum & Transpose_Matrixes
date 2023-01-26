@@ -1,0 +1,97 @@
+#include<iostream>
+#define row 2     //using Define pre-processor directive
+#define column 2
+
+using namespace std;
+
+// declaring a Class named MatrixProperty
+class MatrixProperty{
+	private: 
+	int matrix[row][column];
+	public: 
+	MatrixProperty();
+	MatrixProperty(int array[][column]);
+	void setMatrix(int array[][column]);
+	
+	const MatrixProperty operator + (const MatrixProperty& _matrix)const;
+	
+	void Display(MatrixProperty& _matrix);
+	
+	//start of transpose function
+	const friend MatrixProperty Transpose(MatrixProperty& _matrix){
+		MatrixProperty result;
+		for(int i = 0; i < row; i++){
+			for(int j = 0; j < column; j++){
+				
+				result.matrix[j][i] = _matrix.matrix[i][j];
+			}
+		}
+		return result;
+	}  //end of transpose function
+	
+};//end of class
+
+
+// A default constructor which will initialize the array matrix to ZERO.
+MatrixProperty::MatrixProperty(){
+	for(int i = 0; i < row; i++){
+		for(int j = 0; j < column; j++){
+			this->matrix[i][j] = 0;
+		}
+	}
+}
+
+// A parameterized constructor which will take the array as a parameter and initialize the array matrix with the passed array(the one taken as a parameter).
+MatrixProperty::MatrixProperty(int array[][column]){
+		for(int i = 0; i < row; i++){
+		for(int j = 0; j < column; j++){
+			this->matrix[i][j] = array[i][j];
+		}
+	}
+}
+
+// sum of matrix
+const MatrixProperty MatrixProperty:: operator + (const MatrixProperty& _matrix)const{
+		MatrixProperty MatrixSum;
+		for(int i = 0; i < row;i++){
+				for(int j = 0; j < column;j++){
+					MatrixSum.matrix[i][j] = this->matrix[i][j] + _matrix.matrix[i][j];
+				}
+			}
+		return MatrixSum;
+	}// end of 'sum of matrix'
+	
+void MatrixProperty::Display(MatrixProperty& _matrix){
+		for(int i = 0; i < row;i++){
+				for(int j = 0; j < column;j++){
+					cout << _matrix.matrix[i][j] << " ";
+				}
+				cout << endl;
+			}
+	}
+
+
+//main function
+main(){
+	
+	int a[row][column] = {{1,2},{3,4}};
+	int b[row][column] = {{5,7},{6,2}};
+	
+	MatrixProperty instance_A(a), instance_B(b), matrix_sum;
+	
+	cout << "Matrix A: " << endl;
+	instance_A.Display(instance_A);
+	
+	cout << "Matrix B: " << endl;
+	instance_B.Display(instance_B);
+	
+	matrix_sum = instance_A + instance_B;
+	cout << "Sum of Matrix A and B: " << endl;
+	matrix_sum.Display(matrix_sum);
+	
+	cout << "Transpose of Matrix (A + B): " << endl;
+	matrix_sum = Transpose(matrix_sum);
+	matrix_sum.Display(matrix_sum);
+	
+	return 0;
+}
