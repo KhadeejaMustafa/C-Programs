@@ -1,0 +1,33 @@
+ // in this program we're going to overload functions to print variables of different types.
+ 
+ 
+#include<iostream>
+
+using namespace std;
+
+//defining the functions
+void print(int i){
+	cout << "The value of the interger is: " << endl << i << endl;
+}
+
+void print(float f){
+	cout << "The value of the number with decimal point is: " << endl << f << endl;
+}
+
+void print(char *c){
+	cout << "The string is: " << endl << c << endl;
+}
+
+
+
+main(void){
+	
+	int i = 488; //any random integer
+	float f = 3.8;
+	char *c = "Function Overloading";
+	
+	print(c);
+	print(i);
+	print(f);
+
+}
