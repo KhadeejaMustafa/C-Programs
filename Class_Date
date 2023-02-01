@@ -1,0 +1,68 @@
+#include<iostream>
+
+using namespace std;
+
+
+class Date{
+	//declaring intergers in private section of class. 
+	private: 
+	int day, month, year;            
+	
+	
+	//declaring four functions.
+	public: 
+	void Display(char* date_number);         //Display function will display the date.        
+	void setDay(int d);
+	void setMonth(int m);
+	void setYear(int y);
+	
+};
+
+
+//defining Display function
+void Date::Display(char* date_number){
+	cout << date_number << " is: " << day << "-" << month << "-" << year << endl;
+}
+
+
+// defining setDay function
+void Date::setDay(int d){
+	day = d;
+}
+
+
+// defining setMonth function
+void Date::setMonth(int m){
+	month = m;
+}
+
+
+// defining setYear function
+void Date::setYear(int y){
+	year = y;
+}
+
+
+// main program
+main(){
+	
+	Date date1;   //we're declaring an object for class named "Date".
+	
+
+	date1.setDay(1);
+	date1.setMonth(2);
+	date1.setYear(2023);
+	date1.Display("1st date");	
+	
+	
+	date1.setDay(21);
+	date1.setMonth(10);
+	date1.setYear(1997);
+	date1.Display("2nd date");	
+	
+	
+	date1.setDay(19);
+	date1.setMonth(6);
+	date1.setYear(2001);
+	date1.Display("3rd date");	
+}
