@@ -1,0 +1,50 @@
+#include<iostream>
+
+using namespace std;
+//we'll name the class as 'aClass'.
+class aClass {
+
+		// declare a friend function
+		friend void double_increment(aClass *, int i);
+		/* friend function takes two arguments:-
+		1.an object of the class.
+		2.an integer that will be added to the private integer. */
+
+	private:
+		int secret_number;
+
+	public:
+		void display();
+		aClass(); //constructor
+
+};
+
+//constructor of the class; will initialize the value of the integer we're aiming to modify.
+aClass::aClass() {
+
+	secret_number = 2;
+}
+
+//display function
+void aClass::display() {
+	cout << "Value of the secret number is: " << secret_number << endl;
+}
+
+//definition of friend function
+void double_increment(aClass *obj, int i) {
+	obj->secret_number += i;   //the private data is modified here.
+}
+
+//main function
+main() {
+	aClass x; //x is the name of an object of this class.
+	x.display();
+
+	double_increment(&x, 2);
+	x.display();
+
+	//doubling it once again.
+	double_increment(&x, 2);
+	x.display();
+}
+
