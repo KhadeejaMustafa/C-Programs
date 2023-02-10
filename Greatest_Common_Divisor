@@ -1,0 +1,25 @@
+#include<iostream>
+
+using namespace std;
+
+//declaring and defining the function Gcd. 
+int Gcd(int a, int b){
+	if(b == 0){
+		return a;
+	}
+	
+		return Gcd(b, a%b);
+}
+
+
+main(){
+	int a, b;
+	cout << "please enter value of a: " << endl;
+	cin >> a;
+	
+	cout << "please enter value of b: " << endl;
+	cin >> b;
+	
+	cout << "Greatest Common Divisor of " << a << " and " << b << " is " << Gcd(a,b);
+	return 0;
+}
