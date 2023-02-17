@@ -1,0 +1,53 @@
+
+#include<iostream>
+#include<stdlib.h>
+ 
+using namespace std;
+class abook
+{
+    const char* name;
+    int published_year;
+    const char* author;
+public:
+	//parameterless constructor
+    abook()
+    {
+        cout<< "Constructor is called\n";
+    }
+    //parameterized constructor
+    abook(const char* name, const char* author, int published_year)
+    {
+        this->name = name;
+        this->published_year = published_year;
+        this->author = author;
+    }
+    void display()
+    {
+   	cout << "\n" << "book name: " << name << endl;
+	cout << "author: " << author << endl;
+	cout << "year of publication: " << published_year << endl;;
+    }
+    
+    //function for overloading new operator
+    void * operator new(size_t size)
+    {
+        cout << "Overloading 'new' operator with size: " << size << endl;
+        void * p = malloc(size);
+     
+        return p;
+    }
+ 
+    void operator delete(void * p)
+    {
+        cout << "\n"<< "Overloading 'delete' operator. " << endl;
+        free(p);
+    }
+}; //end of class
+ 
+int main()
+{
+    abook * p = new abook("No longer human", "Osamu Dazai", 1948);
+ 
+    p->display();
+    delete p;
+}
