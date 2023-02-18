@@ -1,0 +1,15 @@
+#include<iostream>
+
+using namespace std;
+
+main(){
+	
+	int a, b;
+	cout << "Enter two values:" << endl;
+	
+	cin >> a;
+	cin >> b;
+	
+	cout << a << (a == b ? " is equal to " : " is not equal to ") << b;
+	return 0;
+}
