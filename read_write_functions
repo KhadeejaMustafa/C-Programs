@@ -1,0 +1,19 @@
+#include<iostream>
+
+using namespace std;
+
+main(){
+	const int size = 60;
+	char buffer[size];
+	
+	cout << "enter a sentence: " << endl;
+	cin.read(buffer, 30);
+	
+	cout << "the entered sentence was: " << endl;
+	cout.write(buffer, cin.gcount()); 
+	/*gcout() function is used to count the characters in the given string. It returns the number 
+	of characters extracted by the input operation declared above*/
+	cout << endl;
+	
+	return 0;
+}
