@@ -1,0 +1,56 @@
+#include<iostream>
+
+using namespace std;
+class myMatrix {
+	private:
+		int num_of_rows;
+		int num_of_columns;
+		int elements[20][20];
+
+	public:
+		myMatrix(int rows, int columns); //constructor
+		void GetMatrix(); // gets matrix from the user.
+		void DisplayMatrix(); //displays the values entered by the user, in form of matrix.
+};
+
+myMatrix::myMatrix(int rows = 0, int columns = 0) {
+	num_of_rows = rows;
+	num_of_columns = columns;
+
+	for(int i = 0; i < num_of_rows; i++) {
+		for(int j = 0; j < num_of_columns; j++) {
+			elements[i][j] = 0;
+		}
+	}
+}
+
+void myMatrix::GetMatrix() {
+	cout << "Enter a " << num_of_rows << "*" << num_of_columns << " Matrix: " << endl;
+	for(int i = 0; i < num_of_rows; i++) {
+		for(int j = 0; j < num_of_columns; j++) {
+			cin >> elements[i][j];
+		}
+	}
+
+}
+
+void myMatrix::DisplayMatrix() {
+	cout << "The Matrix is: " << endl;
+	for(int i = 0; i < num_of_rows; i++) {
+		cout << "\n";
+		for(int j = 0; j < num_of_columns; j++) {
+			cout << elements[i][j] << " ";
+		}
+	}
+
+	cout << endl;
+}
+
+
+
+main() {
+	myMatrix obj1(3,3); //3 rows and 3 columns.
+	obj1.GetMatrix();
+	obj1.DisplayMatrix();
+}
+
