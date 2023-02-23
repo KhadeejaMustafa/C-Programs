@@ -1,0 +1,33 @@
+#include<iostream>
+
+
+using namespace std;
+//static variable function
+void static_varfunc() {
+	static int i = 0;
+	i = i+2;
+	cout << "value of i is: " << i << endl;
+}
+
+//non-static variable function
+void nonstatic_varfunc() {
+	int i = 0;
+	i = i+2;
+	cout << "value of i is: " << i << endl;
+
+}
+main() {
+
+	cout << "\nCalling a function that uses a static variable" << endl;
+	for(int i = 0; i < 11; i++) {
+		static_varfunc();
+	}
+
+	cout << "\n*****" <<  endl;
+
+	cout << "\nCalling a function that uses an automatic variable" << endl;
+	for(int i = 0; i < 11; i++) {
+		nonstatic_varfunc();
+	}
+
+}
