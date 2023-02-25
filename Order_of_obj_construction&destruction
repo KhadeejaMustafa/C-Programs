@@ -1,0 +1,44 @@
+#include<iostream>
+
+using namespace std;
+/*we're going to define two classes, classA and classB. An object of classA is put into classB as its data member*/
+
+class classA{
+	
+	public:
+		
+		//constructor
+		classA(){
+			cout << "\nConstructor of class A is called";
+		}
+		
+		
+		//destructor
+		~classA(){
+			cout << "\nDestructor of class A is called";
+		}
+};
+
+
+
+
+class classB{
+	private:
+		classA objA;
+		
+	public:
+		//constructor
+			classB(){
+			cout << "\nConstructor of class B is called";
+		}
+		
+		
+		//destructor
+		~classB(){
+			cout << "\nDestructor of class B is called";
+		}
+		
+};
+main(){
+	classB objB;
+}
