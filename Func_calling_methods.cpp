@@ -1,3 +1,14 @@
+/*In this program, we'll try the different methods by which we can call functions.
+
+1. Call by Value.
+2. Call by Reference.
+3. Call by Pointers.
+
+first, we'll define a structure that contains a string of 1000 characters. 
+then we'll use the three methods of function calling to manipulate that string.
+we'll declare and define a function for each calling method.
+*/
+
 #include<iostream>
 
 using namespace std;
